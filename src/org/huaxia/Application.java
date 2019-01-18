@@ -11,6 +11,16 @@ public class Application {
 		bicycle.printStates();
 		bicycle.changeGear(3);
 		bicycle.printStates();
+		
+		Bicycle bicycle1 = new Bicycle();
+		bicycle1.printStates();
+		bicycle1.speedUp(2);
+		bicycle1.printStates();
+		bicycle1.changeCadence(4);
+		bicycle1.printStates();
+		bicycle1.changeGear(6);
+		bicycle1.printStates();
+		
 	}
 
 }
