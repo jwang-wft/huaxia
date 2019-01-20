@@ -4,7 +4,7 @@ public class ArrayDemo {
 
 	public static void main(String[] args) {
 		int[] a = { 10, 12, 15, 16, 43, 23 };
-		String[] s = { "John", "Charles", "David", "Williams" };
+//		String[] s = { "John", "Charles", "David", "Williams" };
 		Bicycle[] bicycles = new Bicycle[2];
 		bicycles[0] = new Bicycle("John's Bike");
 		bicycles[1] = new Bicycle("Williams' Bike");

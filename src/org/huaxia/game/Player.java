@@ -10,15 +10,6 @@ public class Player extends GameObject {
 
 	public Player(int x, int y, ID id) {
 		super(x, y, id);
-		int i = r.nextInt(5);
-		if (i < 3) {
-			velX = r.nextInt(5) + 1;
-			velY = r.nextInt(5) + 1;
-		} else {
-			velX = -r.nextInt(5) - 1;
-			velY = -r.nextInt(5) - 1;
-
-		}
 	}
 
 	@Override
