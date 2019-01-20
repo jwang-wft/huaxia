@@ -7,8 +7,8 @@ import java.awt.image.BufferStrategy;
 
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 515207149561806841L;
-	private static final int WIDTH = 640;
-	private static final int HEIGHT = WIDTH / 12 * 9;
+	public static final int WIDTH = 640;
+	public static final int HEIGHT = WIDTH / 12 * 9;
 	private Thread thread;
 	private boolean running = false;
 	private Handler handler;
