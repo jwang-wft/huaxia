@@ -4,6 +4,7 @@ public class PrimaryDataType {
 	long creditCardNumber = 1234_5678_9012_3456L;
 	long socialSecurityNumber = 999_99_9999L;
 	int maxInt = 0x7FFF_FFFF;
+	int minInt = 0x8000_0000;
 	float pi =  3.14_15F;
 	long hexBytes = 0xFF_EC_DE_5E;
 	long hexWords = 0xCAFE_BABE;
@@ -14,6 +15,7 @@ public class PrimaryDataType {
 	public static void main(String[] args) {
 		PrimaryDataType pdt = new PrimaryDataType();
 		
+		System.out.println(pdt.minInt);
 		System.out.println(pdt.maxInt);
 		System.out.println(pdt.creditCardNumber);
 		System.out.println(pdt.socialSecurityNumber);
