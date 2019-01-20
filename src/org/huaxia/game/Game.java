@@ -4,6 +4,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.util.Random;
 
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 515207149561806841L;
@@ -12,15 +13,17 @@ public class Game extends Canvas implements Runnable {
 	private Thread thread;
 	private boolean running = false;
 	private Handler handler;
-//	private Random r = new Random();
+	private Random r = new Random();
 
 	public Game() {
 		handler = new Handler();
 		this.addKeyListener(new KeyInput(handler));
-		
+
 		new Window(WIDTH, HEIGHT, "梓琦游戏", this);
 		handler.addObject(new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.Player));
-		handler.addObject(new BasicEnemy(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.BasicEnemy));
+		for (int i = 0; i < 20; i++) {
+			handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy));
+		}
 	}
 
 	public static void main(String[] args) {
@@ -62,7 +65,7 @@ public class Game extends Canvas implements Runnable {
 			frames++;
 			if (System.currentTimeMillis() - timer > 1000) {
 				timer += 1000;
-//				System.out.println("FPS: " + frames);
+				// System.out.println("FPS: " + frames);
 				frames = 0;
 			}
 		}
