@@ -2,12 +2,23 @@ package org.huaxia.game;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Random;
 
 public class Player extends GameObject {
 
+	Random r = new Random();
+
 	public Player(int x, int y, ID id) {
 		super(x, y, id);
-		velX = 1;
+		int i = r.nextInt(5);
+		if (i < 3) {
+			velX = r.nextInt(5) + 1;
+			velY = r.nextInt(5) + 1;
+		} else {
+			velX = -r.nextInt(5) - 1;
+			velY = -r.nextInt(5) - 1;
+
+		}
 	}
 
 	@Override
