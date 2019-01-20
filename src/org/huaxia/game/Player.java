@@ -7,11 +7,13 @@ public class Player extends GameObject {
 
 	public Player(int x, int y, ID id) {
 		super(x, y, id);
+		velX = 1;
 	}
 
 	@Override
 	public void tick() {
-		// TODO Auto-generated method stub
+		x += velX;
+		y += velY;
 
 	}
 
