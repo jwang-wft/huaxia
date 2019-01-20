@@ -20,6 +20,7 @@ public class Game extends Canvas implements Runnable {
 		new Window(WIDTH, HEIGHT, "梓琦游戏", this);
 		handler = new Handler();
 		handler.addObject(new Player(100, 100, ID.Player));
+		handler.addObject(new Player(200, 200, ID.Player));
 	}
 
 	public static void main(String[] args) {
