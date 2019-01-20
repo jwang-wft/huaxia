@@ -16,11 +16,12 @@ public class Game extends Canvas implements Runnable {
 
 	public Game() {
 		handler = new Handler();
-		this.addKeyListener(new KeyInput());
+		this.addKeyListener(new KeyInput(handler));
 		
 		new Window(WIDTH, HEIGHT, "梓琦游戏", this);
 		// for(int i=0; i<50; i++) {
 		handler.addObject(new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.Player));
+		handler.addObject(new Player(WIDTH / 2 + 64, HEIGHT / 2 - 32, ID.Player2));
 		// }
 	}
 
