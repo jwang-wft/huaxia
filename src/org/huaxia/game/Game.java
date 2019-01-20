@@ -14,10 +14,12 @@ public class Game extends Canvas implements Runnable {
 	private static final int HEIGHT = WIDTH / 12 * 9;
 	private Thread thread;
 	private boolean running = false;
+	private Handler handler;
 
 	public Game() {
 		new Window(WIDTH, HEIGHT, "梓琦游戏", this);
-
+		handler = new Handler();
+		handler.addObject(new Player(100, 100, ID.Player));
 	}
 
 	public static void main(String[] args) {
@@ -67,18 +69,20 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	private void tick() {
+		handler.tick();
 
 	}
 
 	private void render() {
 		BufferStrategy bs = this.getBufferStrategy();
-		if(bs == null) {
+		if (bs == null) {
 			this.createBufferStrategy(3);
 			return;
 		}
 		Graphics g = bs.getDrawGraphics();
-		g.setColor(Color.BLUE);
+		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
+		handler.render(g);
 		g.dispose();
 		bs.show();
 	}
