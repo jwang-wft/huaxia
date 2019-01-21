@@ -15,15 +15,15 @@ public class Game extends Canvas implements Runnable {
 	private Handler handler;
 	private Random r = new Random();
 	private HUD hud;
-	
+
 	public Game() {
 		handler = new Handler();
 		this.addKeyListener(new KeyInput(handler));
 		hud = new HUD();
 
 		new Window(WIDTH, HEIGHT, "梓琦游戏", this);
-		handler.addObject(new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.Player));
-			handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy));
+		handler.addObject(new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.Player, handler));
+		handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy));
 	}
 
 	public static void main(String[] args) {
@@ -92,7 +92,7 @@ public class Game extends Canvas implements Runnable {
 		g.dispose();
 		bs.show();
 	}
-	
+
 	public static int clamp(int var, int min, int max) {
 		if (var >= max)
 			return var = max;
