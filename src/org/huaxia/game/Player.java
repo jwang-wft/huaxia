@@ -10,7 +10,7 @@ public class Player extends GameObject {
 
 	@Override
 	public Rectangle getBounds() {
-		return new Rectangle(x, y, 32, 32);
+		return new Rectangle(x-2, y-2, 32+4, 32+4);
 	}
 
 	Random r = new Random();
@@ -29,16 +29,12 @@ public class Player extends GameObject {
 
 	@Override
 	public void render(Graphics g) {
-		
+
 		Graphics2D g2d = (Graphics2D) g;
-		g2d.setColor(Color.green);
+		g2d.setColor(Color.red);
 		g2d.draw(getBounds());
-//		if (id == ID.Player) {
-//			g.setColor(Color.white);
-//		} else {
-//			g.setColor(Color.blue);
-//		}
-//		g.fillRect(x, y, 32, 32);
+		g.setColor(Color.white);
+		g.fillRect(x, y, 32, 32);
 	}
 
 }
