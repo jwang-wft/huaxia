@@ -29,12 +29,12 @@ public class Player extends GameObject {
 		handler.addObject(new Trail(x, y, ID.Trail, Color.white, 32, 32, 0.05f, handler));
 		collision();
 	}
-	
+
 	private void collision() {
-		for (int i=0; i<handler.object.size(); i++) {
+		for (int i = 0; i < handler.object.size(); i++) {
 			GameObject tempObject = handler.object.get(i);
-			if(tempObject.getId() == ID.BasicEnemy) {
-				if(getBounds().intersects(tempObject.getBounds())) {
+			if (tempObject.getId() == ID.BasicEnemy || tempObject.getId() == ID.FastEnemy) {
+				if (getBounds().intersects(tempObject.getBounds())) {
 					HUD.HEALTH -= 2;
 				}
 			}
