@@ -15,6 +15,7 @@ public class Game extends Canvas implements Runnable {
 	private Handler handler;
 	private Random r = new Random();
 	private HUD hud;
+	private Spawn spawner;
 
 	public Game() {
 		handler = new Handler();
@@ -23,8 +24,8 @@ public class Game extends Canvas implements Runnable {
 
 		new Window(WIDTH, HEIGHT, "梓琦游戏", this);
 		handler.addObject(new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.Player, handler));
-		for(int i=0; i<5; i++)
-		handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy, handler));
+		for (int i = 0; i < 5; i++)
+			handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy, handler));
 	}
 
 	public static void main(String[] args) {
@@ -62,8 +63,13 @@ public class Game extends Canvas implements Runnable {
 				tick();
 				delta--;
 			}
-			if (running)
-				render();
+			if (running) {
+				try {
+					render();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
 			frames++;
 			if (System.currentTimeMillis() - timer > 1000) {
 				timer += 1000;
@@ -72,6 +78,10 @@ public class Game extends Canvas implements Runnable {
 			}
 		}
 		stop();
+		for (int i = 0; i < handler.object.size(); i++) {
+			handler.object.get(i).setVelX(0);
+			handler.object.get(i).setVelY(0);
+		}
 	}
 
 	private void tick() {
@@ -79,7 +89,7 @@ public class Game extends Canvas implements Runnable {
 		hud.tick();
 	}
 
-	private void render() {
+	private void render() throws Exception {
 		BufferStrategy bs = this.getBufferStrategy();
 		if (bs == null) {
 			this.createBufferStrategy(3);
@@ -101,6 +111,14 @@ public class Game extends Canvas implements Runnable {
 			return var = min;
 		else
 			return var;
+	}
+
+	public boolean isRunning() {
+		return running;
+	}
+
+	public void setRunning(boolean running) {
+		this.running = running;
 	}
 
 }
