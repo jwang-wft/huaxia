@@ -21,11 +21,11 @@ public class Game extends Canvas implements Runnable {
 		handler = new Handler();
 		this.addKeyListener(new KeyInput(handler));
 		hud = new HUD();
+		spawner = new Spawn(handler, hud);
 
 		new Window(WIDTH, HEIGHT, "梓琦游戏", this);
 		handler.addObject(new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.Player, handler));
-		for (int i = 0; i < 5; i++)
-			handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy, handler));
+		handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy, handler));
 	}
 
 	public static void main(String[] args) {
@@ -87,6 +87,7 @@ public class Game extends Canvas implements Runnable {
 	private void tick() {
 		handler.tick();
 		hud.tick();
+		spawner.tick();
 	}
 
 	private void render() throws Exception {
