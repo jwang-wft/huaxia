@@ -6,16 +6,20 @@ import java.awt.Graphics;
 public class HUD {
 	public static int HEALTH = 100;
 	private int greenValue = 255;
-	
+	private Game game;
 	private int score = 0;
 	private int level = 1;
-	
+
+	public HUD(Game game) {
+		this.game = game;
+	}
 	public void tick() {
 //		HEALTH--;
 //		HEALTH = Game.clamp(HEALTH, 0, 100);
 		greenValue = HEALTH*2;
 		greenValue = Game.clamp(greenValue, 0, 255);
 		score++;
+		if(HEALTH<0) game.stop();
 	}
 
 	public void render(Graphics g) throws Exception{

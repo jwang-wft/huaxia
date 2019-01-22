@@ -20,7 +20,7 @@ public class Game extends Canvas implements Runnable {
 	public Game() {
 		handler = new Handler();
 		this.addKeyListener(new KeyInput(handler));
-		hud = new HUD();
+		hud = new HUD(this);
 		spawner = new Spawn(handler, hud);
 
 		new Window(WIDTH, HEIGHT, "梓琦游戏", this);
@@ -54,7 +54,7 @@ public class Game extends Canvas implements Runnable {
 		double ns = 1000000000 / amountOfTicks;
 		double delta = 0;
 		long timer = System.currentTimeMillis();
-		int frames = 0;
+//		int frames = 0;
 		while (running) {
 			long now = System.nanoTime();
 			delta += (now - lastTime) / ns;
@@ -70,11 +70,11 @@ public class Game extends Canvas implements Runnable {
 					e.printStackTrace();
 				}
 			}
-			frames++;
+//			frames++;
 			if (System.currentTimeMillis() - timer > 1000) {
 				timer += 1000;
 				// System.out.println("FPS: " + frames);
-				frames = 0;
+//				frames = 0;
 			}
 		}
 		stop();
