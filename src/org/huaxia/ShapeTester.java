@@ -8,7 +8,7 @@ public class ShapeTester {
 		s.y = 1.0;
 		s.side = 5;
 		double area = s.side * s.side;
-		System.out.printf("the area of the square is %5.2f\n", area);
+		System.out.printf("the area of the square at point (%3.1f, %3.1f) is %5.2f.\n", s.x, s.y, area);
 	}
 
 }
