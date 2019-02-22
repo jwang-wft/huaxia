@@ -1,8 +1,7 @@
 package org.huaxia;
 
 public class Square {
-	double x;
-	double y;
+	Point topLeft;
 	double side;
 	
 	double area() {
