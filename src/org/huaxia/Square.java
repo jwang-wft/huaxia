@@ -1,8 +1,8 @@
 package org.huaxia;
 
 public class Square {
-	public Point topLeft;
-	double side;
+	private Point topLeft;
+	private double side;
 	
 	public Square(Point topLeft, double side){
 		this.topLeft = topLeft;
@@ -11,4 +11,8 @@ public class Square {
 	public double area() {
 		return side * side;
 	}
+	public Point getTopLeft() {
+		return topLeft;
+	}
+	
 }
