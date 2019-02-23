@@ -1,14 +1,14 @@
 package org.huaxia;
 
 public class Square {
-	Point topLeft;
+	public Point topLeft;
 	double side;
 	
-	Square(Point topLeft, double side){
+	public Square(Point topLeft, double side){
 		this.topLeft = topLeft;
 		this.side = side;
 	}
-	double area() {
+	public double area() {
 		return side * side;
 	}
 }

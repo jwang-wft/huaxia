@@ -1,4 +1,4 @@
-package org.huaxia;
+package org.huaxia.test;
 
 import org.huaxia.Point;
 import org.huaxia.Square;
