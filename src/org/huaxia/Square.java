@@ -1,6 +1,6 @@
 package org.huaxia;
 
-public class Square {
+public class Square implements Shape{
 	private Point topLeft;
 	private double side;
 	

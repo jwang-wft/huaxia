@@ -1,6 +1,6 @@
 package org.huaxia;
 
-public class Rectangle {
+public class Rectangle implements Shape{
 	private Point topLeft;
 	private double height;
 	private double width;
