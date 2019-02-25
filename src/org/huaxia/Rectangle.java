@@ -26,4 +26,8 @@ public class Rectangle implements Shape{
 		return topLeft;
 	}
 	
+	public String toString() {
+		return String.format("the area of the rectangle at point %s is %5.2f.", topLeft, area());
+	}
+	
 }

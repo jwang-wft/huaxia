@@ -20,6 +20,6 @@ public class ShapeTester {
 	// 4. Polymorphism （抽象性abstract； 继承性inheritance； 封闭性encapsulation；
 	// 多样性Polymorphism)
 	public static void printShape(Shape s) {
-		System.out.printf("the area of the square at point %s is %5.2f.\n", s.getTopLeft(), s.area());
+		System.out.println(s);
 	}
 }

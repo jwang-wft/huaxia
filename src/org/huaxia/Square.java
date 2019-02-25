@@ -15,4 +15,7 @@ public class Square implements Shape{
 		return topLeft;
 	}
 	
+	public String toString() {
+		return String.format("the area of the square at point %s is %5.2f.", topLeft, area());
+	}
 }
